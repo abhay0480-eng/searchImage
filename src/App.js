@@ -1,10 +1,17 @@
 import "./styles.css";
+import React from "react";
+import { Route, Switch } from "react-router-dom";
+import HomePage from "./components/pages/HomePage.component";
+import Canvas from "./components/pages/canvas.component";
 
-export default function App() {
+function SearchImageApp() {
   return (
-    <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing t see some magic happen!</h2>
+    <div>
+      <Switch>
+        <Route exact path="/homepage" component={HomePage} />
+        <Route path="/canvas" component={Canvas} />
+      </Switch>
     </div>
   );
 }
+export default SearchImageApp;

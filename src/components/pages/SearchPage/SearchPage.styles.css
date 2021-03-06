@@ -1,0 +1,23 @@
+.input {
+  margin-left: 10px;
+}
+.in {
+  margin-left: 14px;
+}
+
+.r {
+  margin-top: 20px;
+}
+.photo-list {
+  width: 85vw;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
+}
+
+.photo-container {
+  display: flex;
+  flex-direction: row;
+  padding: 25px;
+}

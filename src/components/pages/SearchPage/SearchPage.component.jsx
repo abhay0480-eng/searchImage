@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import "./SearchPage.styles.css";
 import { BsSearch } from "react-icons/bs";
-
+import { Link } from "react-router-dom";
 class SearchPage extends React.Component {
   constructor(props) {
     super(props);
@@ -21,7 +21,7 @@ class SearchPage extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const Url =
-      "https://api.unsplash.com/search/photos?page=1&query=" +
+      "https://api.unsplash.com/search/photos?page=10&query=" +
       this.state.image +
       "&client_id=" +
       this.state.clientID +
@@ -53,7 +53,33 @@ class SearchPage extends React.Component {
           {
             // Personal Information
           }
-
+          <div className="row">
+            <div className="col-sm">
+              <form>
+                <div className="input-group">
+                  <span className="input-group-text">First and last name</span>
+                  <input
+                    type="text"
+                    aria-label="First name"
+                    className="form-control"
+                  />
+                  <input
+                    type="text"
+                    aria-label="Last name"
+                    className="form-control"
+                  />
+                </div>
+                <div className="input-group">
+                  <span className="input-group-text">E-mail</span>
+                  <input
+                    type="text"
+                    aria-label="First name"
+                    className="form-control"
+                  />
+                </div>
+              </form>
+            </div>
+          </div>
           {
             // Personal Information ends
           }
@@ -92,12 +118,17 @@ class SearchPage extends React.Component {
           <div className="photo-container">
             <div className="photo-list">
               {this.state.responses.map((photo) => (
-                <img
-                  src={photo.urls.small}
-                  width="300px"
-                  height="300px"
-                  alt="pic"
-                />
+                <div>
+                  <img
+                    src={photo.urls.small}
+                    width="300px"
+                    height="300px"
+                    alt="pic"
+                  />
+                  <button>
+                    <Link to="/canvas">Add Caption</Link>
+                  </button>
+                </div>
               ))}
             </div>
           </div>
